@@ -13,6 +13,7 @@ https://meetings-and-lectures-recordings-as.vercel.app/
 
 Key features:
 
+- chatbot to answer queries regarding the meetings or lectures.
 - frontend is implemented in react.js framwork.
 - **Transcribe almost any audio/video file with high accuracy using Whisper model ** 
 - **Summarize transcripts** using [OpenAI LLMs](https://openai.com/blog/openai-api/)
