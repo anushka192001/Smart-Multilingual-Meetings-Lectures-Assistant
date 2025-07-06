@@ -6,36 +6,8 @@ import openai
 import tiktoken
 
 from ._prompts import (
-    EnglishLecturePrompts,
-    EnglishMeetingPrompts,
-    JapaneseLecturePrompts,
-    JapaneseMeetingPrompts,
-    SpanishLecturePrompts,
-    SpanishMeetingPrompts,
-    UrduLecturePrompts,
-    HindiLecturePrompts,
-    ArabicLecturePrompts,
-    FrenchLecturePrompts,
-    GermanLecturePrompts,
-    KoreanLecturePrompts,
-    BengaliLecturePrompts,
-    ChineseLecturePrompts,
-    ItalianLecturePrompts,
-    RussianLecturePrompts,
-    TurkishLecturePrompts,
-    PortugueseLecturePrompts,
-    UrduMeetingPrompts,
-    HindiMeetingPrompts,
-    ArabicMeetingPrompts,
-    FrenchMeetingPrompts,
-    GermanMeetingPrompts,
-    KoreanMeetingPrompts,
-    BengaliMeetingPrompts,
-    ChineseMeetingPrompts,
-    ItalianMeetingPrompts,
-    RussianMeetingPrompts,
-    TurkishMeetingPrompts,
-    PortugueseMeetingPrompts   
+    LecturePrompts,
+    MeetingPrompts
 )
 
 
@@ -80,72 +52,16 @@ class Summarizer:
         # Somehow cannot extend the Enum class,
         # we cannot make base class for prompts.
         self.__prompts: Union[
-              EnglishLecturePrompts,
-    EnglishMeetingPrompts,
-    JapaneseLecturePrompts,
-    JapaneseMeetingPrompts,
-    SpanishLecturePrompts,
-    SpanishMeetingPrompts,
-    UrduLecturePrompts,
-    HindiLecturePrompts,
-    ArabicLecturePrompts,
-    FrenchLecturePrompts,
-    GermanLecturePrompts,
-    KoreanLecturePrompts,
-    BengaliLecturePrompts,
-    ChineseLecturePrompts,
-    ItalianLecturePrompts,
-    RussianLecturePrompts,
-    TurkishLecturePrompts,
-    PortugueseLecturePrompts,
-    UrduMeetingPrompts,
-    HindiMeetingPrompts,
-    ArabicMeetingPrompts,
-    FrenchMeetingPrompts,
-    GermanMeetingPrompts,
-    KoreanMeetingPrompts,
-    BengaliMeetingPrompts,
-    ChineseMeetingPrompts,
-    ItalianMeetingPrompts,
-    RussianMeetingPrompts,
-    TurkishMeetingPrompts,
-    PortugueseMeetingPrompts  
+              LecturePrompts,
+              MeetingPrompts
         ] = None
 
-    def summarize(
+    def summarize( 
         self,
         transcript: str,
         prompts: Union[
-               EnglishLecturePrompts,
-    EnglishMeetingPrompts,
-    JapaneseLecturePrompts,
-    JapaneseMeetingPrompts,
-    SpanishLecturePrompts,
-    SpanishMeetingPrompts,
-    UrduLecturePrompts,
-    HindiLecturePrompts,
-    ArabicLecturePrompts,
-    FrenchLecturePrompts,
-    GermanLecturePrompts,
-    KoreanLecturePrompts,
-    BengaliLecturePrompts,
-    ChineseLecturePrompts,
-    ItalianLecturePrompts,
-    RussianLecturePrompts,
-    TurkishLecturePrompts,
-    PortugueseLecturePrompts,
-    UrduMeetingPrompts,
-    HindiMeetingPrompts,
-    ArabicMeetingPrompts,
-    FrenchMeetingPrompts,
-    GermanMeetingPrompts,
-    KoreanMeetingPrompts,
-    BengaliMeetingPrompts,
-    ChineseMeetingPrompts,
-    ItalianMeetingPrompts,
-    RussianMeetingPrompts,
-    TurkishMeetingPrompts,
-    PortugueseMeetingPrompts  
+    LecturePrompts,
+    MeetingPrompts
         ],
     ) -> str:
         """
@@ -157,11 +73,9 @@ class Summarizer:
             The transcript of the meeting.
             Texts are split into sentences by newline characters.
         prompts : Union[
-            JapaneseLecturePrompts,
-            JapaneseMeetingPrompts,
-            EnglishLecturePrompts,
-            EnglishMeetingPrompts
-        ]
+          LecturePrompts,
+          MeetingPrompts
+        ] 
             The prompts to be used for summarization.
 
         Returns
