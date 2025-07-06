@@ -1,5 +1,5 @@
-# AI-powered-Multilingual-Meetings-Lectures-Assistant
-**AI-powered-Multilingual-Meetings-Lectures-Assistant is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
+# Smart-Multilingual-Meetings-Lectures-Assistant
+**Smart-Multilingual-Meetings-Lectures-Assistant is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
 
 <h1 align="center">
   <img src="./assets/final-rec-final.gif" width=100%>
