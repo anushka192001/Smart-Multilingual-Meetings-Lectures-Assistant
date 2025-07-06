@@ -5,36 +5,9 @@ from typing import Literal, Union
 from dotenv import load_dotenv
 
 from ._prompts import (
-       EnglishLecturePrompts,
-    EnglishMeetingPrompts,
-    JapaneseLecturePrompts,
-    JapaneseMeetingPrompts,
-    SpanishLecturePrompts,
-    SpanishMeetingPrompts,
-    UrduLecturePrompts,
-    HindiLecturePrompts,
-    ArabicLecturePrompts,
-    FrenchLecturePrompts,
-    GermanLecturePrompts,
-    KoreanLecturePrompts,
-    BengaliLecturePrompts,
-    ChineseLecturePrompts,
-    ItalianLecturePrompts,
-    RussianLecturePrompts,
-    TurkishLecturePrompts,
-    PortugueseLecturePrompts,
-    UrduMeetingPrompts,
-    HindiMeetingPrompts,
-    ArabicMeetingPrompts,
-    FrenchMeetingPrompts,
-    GermanMeetingPrompts,
-    KoreanMeetingPrompts,
-    BengaliMeetingPrompts,
-    ChineseMeetingPrompts,
-    ItalianMeetingPrompts,
-    RussianMeetingPrompts,
-    TurkishMeetingPrompts,
-    PortugueseMeetingPrompts,
+       LecturePrompts,
+       MeetingPrompts
+   
 )
 from ._summarizer import Summarizer
 from ._transcriber import Transcriber
@@ -75,40 +48,30 @@ class MinutesMaker:
             num_workers=num_workers,
         )
 
+        self.__map_lang = [
+            {'ja': 'japanese'},
+            {'en': 'english'},
+            {'es': 'spanish'},
+            {'fr': 'french'},
+            {'de': 'german'},
+            {'zh': 'chinese'},
+            {'hi': 'hindi'},
+            {'ar': 'arabic'},
+            {'ru': 'russian'},
+            {'pt': 'portuguese'},
+            {'ko': 'korean'},
+            {'it': 'italian'},
+            {'tr': 'turkish'},
+            {'bn': 'bengali'},
+            {'ur': 'urdu'}
+        ]
         # Somehow cannot extend the Enum class,
         # we cannot make base class for prompts.
         self.__prompts: Union[
-             EnglishLecturePrompts,
-    EnglishMeetingPrompts,
-    JapaneseLecturePrompts,
-    JapaneseMeetingPrompts,
-    SpanishLecturePrompts,
-    SpanishMeetingPrompts,
-    UrduLecturePrompts,
-    HindiLecturePrompts,
-    ArabicLecturePrompts,
-    FrenchLecturePrompts,
-    GermanLecturePrompts,
-    KoreanLecturePrompts,
-    BengaliLecturePrompts,
-    ChineseLecturePrompts,
-    ItalianLecturePrompts,
-    RussianLecturePrompts,
-    TurkishLecturePrompts,
-    PortugueseLecturePrompts,
-    UrduMeetingPrompts,
-    HindiMeetingPrompts,
-    ArabicMeetingPrompts,
-    FrenchMeetingPrompts,
-    GermanMeetingPrompts,
-    KoreanMeetingPrompts,
-    BengaliMeetingPrompts,
-    ChineseMeetingPrompts,
-    ItalianMeetingPrompts,
-    RussianMeetingPrompts,
-    TurkishMeetingPrompts,
-    PortugueseMeetingPrompts,
+        LecturePrompts,
+        MeetingPrompts
         ] = None
+        
 
     def __call__(
         self,
@@ -145,119 +108,17 @@ class MinutesMaker:
         tuple[str, str]
             The transcribed timeline and its summary.
         """
-        if language == "ja":
-            if category == "meeting":
-                self.__prompts = JapaneseMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = JapaneseLecturePrompts
-            else:
-                raise ValueError(
-                    f"category must be either 'meeting' or 'lecture', but got {category}."
-                )
-        elif language == "en":
-            if category == "meeting":
-                self.__prompts = EnglishMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = EnglishLecturePrompts
-            else:
-                raise ValueError(
-                    f"category must be either 'meeting' or 'lecture', but got {category}."
-                )
-                
-        elif language == "es":
-            if category == "meeting":
-                self.__prompts = SpanishMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = SpanishLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "fr":
-            if category == "meeting":
-                self.__prompts = FrenchMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = FrenchLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "de":
-            if category == "meeting":
-                self.__prompts = GermanMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = GermanLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "zh":
-            if category == "meeting":
-                self.__prompts = ChineseMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = ChineseLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "hi":
-            if category == "meeting":
-                self.__prompts = HindiMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = HindiLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "ar":
-            if category == "meeting":
-                self.__prompts = ArabicMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = ArabicLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "ru":
-            if category == "meeting":
-                self.__prompts = RussianMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = RussianLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "pt":
-            if category == "meeting":
-                self.__prompts = PortugueseMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = PortugueseLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "ko":
-            if category == "meeting":
-                self.__prompts = KoreanMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = KoreanLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "it":
-            if category == "meeting":
-                self.__prompts = ItalianMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = ItalianLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "tr":
-            if category == "meeting":
-                self.__prompts = TurkishMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = TurkishLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "bn":
-            if category == "meeting":
-                self.__prompts = BengaliMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = BengaliLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        elif language == "ur":
-            if category == "meeting":
-                self.__prompts = UrduMeetingPrompts
-            elif category == "lecture":
-                self.__prompts = UrduLecturePrompts
-            else:
-                raise ValueError(f"category must be either 'meeting' or 'lecture', but got {category}.")
-        else:
-            raise ValueError(f"Unsupported language: {language}")
-     
+        if category == "meeting":
+                self.__prompts =  MeetingPrompts.value.format(
+                        language = self.__map_lang[language]
+                    )
+               
+        elif category == "lecture":
+                self.__prompts =  LecturePrompts.value.format(
+                        language = self.__map_lang[language]
+                    )
+        
+
 
         results = self.__transcriber.convert_and_transcribe(
             audio_or_video_file_path,
