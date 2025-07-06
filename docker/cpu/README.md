@@ -1,24 +1,21 @@
 # MEETINGS AND LECTURES RECORDINGS ASSISTANT
-**MEETINGS AND LECTURES RECORDINGS ASSISTANT is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
+**MEETINGS AND LECTURES RECORDINGS ASSISTANT is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings.**
 
 <h1 align="center">
-  <img src="./assets/final-rec-final.gif" width=100%>
+  <img src="./assets/sample.gif" width=100%>
 </h1>
 
 
-##hosted at 
-https://meetings-and-lectures-recordings-as.vercel.app/
 
 ## Overview
 
 Key features:
 
-- **Transcribe almost any audio/video file**
+- **Transcribe almost any audio/video file** with  [faster-whisper](https://github.com/guillaumekln/faster-whisper)
 - **Summarize transcripts** using [OpenAI LLMs](https://openai.com/blog/openai-api/)
 - **Easy-to-use web interface**
-- Support for **English, Japanese, English, Japanese, Spanish, French, German, Chinese, Hindi,Arabic,Russian,Portuguese, Korean, Italian,Turkish, Bengali and Urdu**
+- Support for **English and Japanese**
 - Compatible with both **CPU and GPU**
-- can handle multiple parallel requests using load balancing.
 
 ## Installation
 
@@ -60,6 +57,10 @@ Open `http://<PUBLIC_IP or 0.0.0.0>:10356` in your browser.
 
 ## Usage
 
+<p align="center">
+  <img src="./assets/sample.png" width=50%>
+</p>
+
 _Just fill the form and click the **Submit** button!_
 
 **Here is a brief explanation of the form:**
@@ -72,7 +73,7 @@ _Just fill the form and click the **Submit** button!_
 
     Select the target language to be summarized. **Note that the language of the audio/video file is automatically detected and cannot be changed**, so you should select _what language you want to summarize_.
 
-    Currently, English, Japanese, Spanish, French, German, Chinese, Hindi,Arabic,Russian,Portuguese, Korean, Italian,Turkish, Bengali, Urdu   are supported.
+    Currently, English and Japanese are supported.
 
 3. **Select category**
 
@@ -84,6 +85,8 @@ _Just fill the form and click the **Submit** button!_
     Set appropriate topic to improve the quality of the transcript.
 
 ## Requirements
+
+- Computer
 - Docker
 
 ## License

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    image: docker_api:latest
+    ports:
+      - 10355:10355
+    runtime: nvidia
+    command: python3.11 main.py
