@@ -8,8 +8,9 @@ WORKDIR /app
 # Copy the current directory into the container
 COPY . .
 
-# Install react dependencies and build
+# install react dependencies and build
 RUN cd view/minutes-maker \
+    && cp /app/.env . \
     && npm install \
     && npm run build
 
@@ -34,10 +35,13 @@ COPY --from=builder /app/requirements.lock /app/requirements.lock
 COPY --from=builder /app/pyproject.toml /app/pyproject.toml
 COPY --from=builder /app/README.md /app/README.md
 
-# Install python dependencies
+# install python dependencies
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 \
     && python3.11 -m pip install --no-cache-dir --upgrade pip setuptools wheel \
     && python3.11 -m pip install --no-cache-dir -r requirements.lock
 
-CMD ["python3.11", "main.py"]
+FROM nginx:latest as frontend
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY --from=builder /app/view/minutes-maker/build /usr/share/nginx/html
