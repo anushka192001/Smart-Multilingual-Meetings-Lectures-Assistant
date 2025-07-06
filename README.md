@@ -1,5 +1,5 @@
-# MEETINGS AND LECTURES RECORDINGS ASSISTANT
-**MEETINGS AND LECTURES RECORDINGS ASSISTANT is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
+# AI-powered-Multilingual-Meetings-Lectures-Assistant
+**AI-powered-Multilingual-Meetings-Lectures-Assistant is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
 
 <h1 align="center">
   <img src="./assets/final-rec-final.gif" width=100%>
@@ -13,11 +13,14 @@ https://meetings-and-lectures-recordings-as.vercel.app/
 
 Key features:
 
-- **Transcribe almost any audio/video file**
+- chatbot to answer queries regarding the meetings or lectures.
+- frontend is implemented in react.js framwork.
+- **Transcribe almost any audio/video file with high accuracy using Whisper model ** 
 - **Summarize transcripts** using [OpenAI LLMs](https://openai.com/blog/openai-api/)
 - **Easy-to-use web interface**
 - Support for **English, Japanese, English, Japanese, Spanish, French, German, Chinese, Hindi,Arabic,Russian,Portuguese, Korean, Italian,Turkish, Bengali and Urdu**
 - Compatible with both **CPU and GPU**
+- Implemented in Docker for instant, hassle-free deployment and portability on any machine.
 - can handle multiple parallel requests using load balancing.
 
 ## Installation
