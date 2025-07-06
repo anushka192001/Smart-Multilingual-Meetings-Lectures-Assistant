@@ -31,6 +31,7 @@ class MeetingPrompts(Enum):
         The following text is a transcription of a meeting in {language}.
         The transcription is done by a machine learning model, and its accuracy is not 100%.
         Also, the transcription results may include not only the participants' remarks, but also background noise and descriptions of the meeting's progress.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         Bearing this in mind, please read the transcription below and answer the user's question.
 
         '''
@@ -41,6 +42,7 @@ class MeetingPrompts(Enum):
     SUMMARIZE_USER_PROMPT_FOR_SUMMARY: str = inspect.cleandoc(
         """
         From the content of the meeting transcription, please summarize the following three points in {language}.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         Please note, describe it in markdown format, emphasizing important points in bold, making the title parts bigger, and so on, for easier reading.
 
         ## 1. Meeting Summary
@@ -51,6 +53,7 @@ class MeetingPrompts(Enum):
     SUMMARIZE_USER_PROMPT_FOR_SHORTENING: str = inspect.cleandoc(
         """
         This transcription is too long, please summarize it while ensuring the key points are captured.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         Please note that this transcription may be a part cut out from a longer transcription.
         """
     )
@@ -87,6 +90,7 @@ class LecturePrompts(Enum):
         The following text is a transcription of a lecture in {language}.
         The transcription is done by a machine learning model, and its accuracy is not 100%.
         Also, the transcription results may include not only the speakers' remarks, but also background noise and descriptions of the lecture's progress.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         Bearing this in mind, please read the transcription below and answer the user's question.
 
         '''
@@ -97,6 +101,7 @@ class LecturePrompts(Enum):
     SUMMARIZE_USER_PROMPT_FOR_SUMMARY: str = inspect.cleandoc(
         """
         From the content of the lecture transcription, please summarize the following three points in {language}.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         Please note, describe it in markdown format, emphasizing important points in bold, making the title parts bigger, and so on, for easier reading.
 
         ## 1. Lecture Summary
@@ -109,5 +114,6 @@ class LecturePrompts(Enum):
         """
         This transcription is too long, please summarize it while ensuring the key points are captured.
         Please note that this transcription may be a part cut out from a longer transcription.
+        Please ensure your responses do not include, generate, or highlight any abusive, offensive, or inappropriate language in any language. Focus on respectful, relevant, and constructive content only.
         """
     )
