@@ -142,6 +142,24 @@ class MinutesMaker:
             Whether CUDA is available or not.
         """
         try:
+# === Edge Agent fix [human-approval] ===
+# rule: human-approval — privileged action requires explicit human confirmation.
+# Replace the stub below with your real approval mechanism (LangGraph
+# interrupt, Slack/email confirm, CLI prompt, etc.).
+# def _edge_require_human_approval(action: str) -> None:
+    # raise PermissionError(
+        # f"Human approval required for: {action!r} (no approval mechanism wired)"
+    # )
+# _edge_require_human_approval("privileged action")
+# === end Edge Agent fix ===
+# === Edge Agent fix [dangerous-tools] ===
+            # TODO(edge-agent): tighten this allow-list to the real commands you need.
+            # _EDGE_ALLOWLIST = {"ls", "git", "echo"}  # rule: dangerous-tools
+            # _edge_cmd = locals().get("cmd") or locals().get("command") or ""
+            # if isinstance(_edge_cmd, str) and not any(_edge_cmd.startswith(c) for c in _EDGE_ALLOWLIST):
+                # raise PermissionError(f"Command not on allow-list: {_edge_cmd!r}")
+            # require_human_approval(f"About to run: {_edge_cmd}")  # uncomment when wired
+# === end Edge Agent fix ===
             output = subprocess.check_output("nvidia-smi", shell=True)
             if "NVIDIA-SMI" in output.decode("utf-8"):
                 return True

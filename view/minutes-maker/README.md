@@ -1,3 +1,12 @@
+<!-- === Edge Agent fix [vague-prompts] === -->
+<!-- # rule: vague-prompts — declare role, output format, and constraints up front. -->
+<!-- _EDGE_PROMPT_PREFIX = ( -->
+<!--     "You are a precise assistant. Output VALID JSON matching the schema below. " -->
+<!--     "MUST cite every input field you used. NEVER invent values. " -->
+<!--     "If the request is ambiguous, ask one clarifying question and stop." -->
+<!-- ) -->
+<!-- # Prepend _EDGE_PROMPT_PREFIX to your system prompt. -->
+<!-- === end Edge Agent fix === -->
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

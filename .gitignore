@@ -1,0 +1,7 @@
+
+# >>> Edge Agent AI (auto-managed; safe to delete this whole block) <<<
+.edgeagent/
+.githooks/
+edge-agent-output/
+evals/
+# <<< Edge Agent AI >>>

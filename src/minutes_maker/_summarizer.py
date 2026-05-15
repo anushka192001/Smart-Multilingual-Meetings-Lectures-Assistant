@@ -25,6 +25,13 @@ class Summarizer:
     def __init__(self, model: str = "gpt-3.5-turbo") -> None:
         """
         Initialize the Summarizer class with an OCRModel instance and
+# === Edge Agent fix [prompt-injection] ===
+        # rule: prompt-injection — treat user content as untrusted data, not instructions.
+        # def _edge_sanitize(user_text: str) -> str:
+            # cleaned = "".join(ch for ch in user_text if ch.isprintable() or ch in "\n\t")
+            # return f"<<<USER_INPUT>>>\n{cleaned}\n<<<END_USER_INPUT>>>"
+        # Use _edge_sanitize(...) when concatenating user input into prompts.
+# === end Edge Agent fix ===
         set the OpenAI API key.
 
         Parameters
