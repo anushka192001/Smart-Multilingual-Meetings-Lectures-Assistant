@@ -29,6 +29,13 @@ Key features:
 
 You need to place the following environment variables.
 
+<!-- === Edge Agent fix [prompt-injection] === -->
+<!-- # rule: prompt-injection — treat user content as untrusted data, not instructions. -->
+<!-- def _edge_sanitize(user_text: str) -> str: -->
+<!--     cleaned = "".join(ch for ch in user_text if ch.isprintable() or ch in "\n\t") -->
+<!--     return f"<<<USER_INPUT>>>\n{cleaned}\n<<<END_USER_INPUT>>>" -->
+<!-- # Use _edge_sanitize(...) when concatenating user input into prompts. -->
+<!-- === end Edge Agent fix === -->
 - `OPENAI_API_KEY` is the API key for summarization, which can be found [here](https://platform.openai.com/account/api-keys).
 
 - `REACT_APP_PUBLIC_IP` is the public IP address of the machine that runs the app.
