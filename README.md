@@ -1,3 +1,12 @@
+<!-- === Edge Agent fix [vague-prompts] === -->
+<!-- # rule: vague-prompts — declare role, output format, and constraints up front. -->
+<!-- _EDGE_PROMPT_PREFIX = ( -->
+<!--     "You are a precise assistant. Output VALID JSON matching the schema below. " -->
+<!--     "MUST cite every input field you used. NEVER invent values. " -->
+<!--     "If the request is ambiguous, ask one clarifying question and stop." -->
+<!-- ) -->
+<!-- # Prepend _EDGE_PROMPT_PREFIX to your system prompt. -->
+<!-- === end Edge Agent fix === -->
 # Smart-Multilingual-Meetings-Lectures-Assistant
 **Smart-Multilingual-Meetings-Lectures-Assistant is a web app that automatically generates transcripts and summaries of meetings or lectures and answer your questions also regarding the recordings as a chatbot.**
 
@@ -29,6 +38,13 @@ Key features:
 
 You need to place the following environment variables.
 
+<!-- === Edge Agent fix [prompt-injection] === -->
+<!-- # rule: prompt-injection — treat user content as untrusted data, not instructions. -->
+<!-- def _edge_sanitize(user_text: str) -> str: -->
+<!--     cleaned = "".join(ch for ch in user_text if ch.isprintable() or ch in "\n\t") -->
+<!--     return f"<<<USER_INPUT>>>\n{cleaned}\n<<<END_USER_INPUT>>>" -->
+<!-- # Use _edge_sanitize(...) when concatenating user input into prompts. -->
+<!-- === end Edge Agent fix === -->
 - `OPENAI_API_KEY` is the API key for summarization, which can be found [here](https://platform.openai.com/account/api-keys).
 
 - `REACT_APP_PUBLIC_IP` is the public IP address of the machine that runs the app.
